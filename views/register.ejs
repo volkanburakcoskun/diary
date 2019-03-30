@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <form name="form1" method="POST" action="/login/">
+      <table>
+        <tr>
+          <td>Name Surname</td>
+          <td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="userName" /></td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td><input type="e-mail" name="e-mail" /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="text" name="password" /></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" value="Save" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
