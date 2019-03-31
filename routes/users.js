@@ -1,12 +1,14 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
+
 const User = require("../models/user");
+const keys = require("../helpers/keys");
 const validateLoginInput = require("../validation/login");
 const validateRegisterInput = require("../validation/register");
-const jwt = require("jsonwebtoken");
-const keys = require("../helpers/keys");
-const bcrypt = require("bcryptjs");
-// @route   POST api/v1/post/
+// @route   POST api/v1/users/login
 // @desc    Login
 // @access  Public
 router.post("/login", (req, res) => {
@@ -16,30 +18,38 @@ router.post("/login", (req, res) => {
   User.findOne({ username }).then(user => {
     // Check for user
     if (!user) {
-      errors.username = "User not found";
+      errors.name = "User not found";
       return res.status(404).json(errors);
     }
-    const payload = { id: user.id, name: user.name }; // Create JWT Payload
-    // Sign Token
-    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-      res.json({
-        success: true,
-        token: "Bearer " + token
-      });
+
+    // Check Password
+    bcrypt.compare(password, user.password).then(isMatch => {
+      if (isMatch) {
+        // User Matched
+        const payload = { id: user.id, name: user.name }; // Create JWT Payload
+
+        // Sign Token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          { expiresIn: 3600 },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token
+            });
+          }
+        );
+      } else {
+        errors.password = "Password incorrect";
+        return res.status(400).json(errors);
+      }
     });
   });
 });
-
-// @route   GET api/v1/post/
-// @desc    Get All Users
-// @access  Private
-
-router.get("/", (req, res) => {
-  User.find({})
-    .then(users => res.json(users))
-    .catch(error => res.json({ usernotfound: "No user found" }));
-});
-
+// @route   GET api/v1/users/register
+// @desc    Register New User
+// @access  Public
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -73,5 +83,30 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
+// @route   GET api/v1/users/
+// @desc    Get All Users
+// @access  Private
+
+router.get("/", (req, res) => {
+  User.find({})
+    .then(users => res.json(users))
+    .catch(error => res.json({ usernotfound: "No user found" }));
+});
+
+// @route   GET api/v1/users/current
+// @desc    Get Current User
+// @access  Private
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
+    });
+  }
+);
 
 module.exports = router;
