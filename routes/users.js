@@ -3,25 +3,25 @@ var router = express.Router();
 const passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/user");
-/* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a resource");
+const validateLoginInput = require("../validation/login");
+
+// @route   POST api/v1/post/
+// @desc    Login
+// @access  Public
+router.post("/login", (req, res) => {
+  console.log(req.body);
+  const { errors, isValid } = validateLoginInput(req.body);
 });
 
-router.get("/login", function(req, res, next) {
-  res.render("login", { title: "Login Page" });
-});
+// @route   GET api/v1/post/
+// @desc    Get All Users
+// @access  Private
 
-router.get("/register", function(req, res, next) {
-  res.render("register", { title: "Login Page" });
+router.get("/", (req, res) => {
+  User.find({})
+    .then(users => res.json(users))
+    .catch(error => res.json({ usernotfound: "No user found" }));
 });
-router.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/error" }),
-  function(req, res) {
-    res.render("createPost", { title: "T", user: req.user });
-  }
-);
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
