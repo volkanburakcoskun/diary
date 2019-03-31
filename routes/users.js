@@ -19,7 +19,7 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/error" }),
   function(req, res) {
-    console.log(req.user);
+    res.render("createPost", { title: "T", user: req.user });
   }
 );
 
