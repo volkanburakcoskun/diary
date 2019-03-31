@@ -4,5 +4,13 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+body {
+  padding-top: 5rem;
+}
+.navbarstyle {
+  background-color: #f2f4f4;
+  font-family: "playfair display", sans-serif;
+  display: block;
 }
