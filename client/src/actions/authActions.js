@@ -27,6 +27,18 @@ export const loginUser = userData => dispatch => {
     );
 };
 
+export const registerUser = (userData, history) => dispatch => {
+  axios
+    .post(`api/v1/users/register`, userData)
+    .then(res => history.push("/login"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
   localStorage.removeItem("jwtToken");

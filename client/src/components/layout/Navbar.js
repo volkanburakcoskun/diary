@@ -15,8 +15,8 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav mr-auto">
         <li className="nav-item active">
-          <Link className="nav-link" to="/feed">
-            Diaries
+          <Link className="nav-link" to="/new">
+            Tell
           </Link>
         </li>
         <li className="nav-item active">
@@ -57,14 +57,14 @@ class Navbar extends Component {
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/">
                   Home
                 </a>
               </li>
             </ul>
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/about-us">
                   About Us
                 </a>
               </li>

@@ -30,17 +30,18 @@ class Diary extends Component {
       author: user.id
     };
 
-    console.log(postData);
     this.props.addPost(postData);
   }
   render() {
     const { errors } = this.state;
     return (
       <div>
-        <Construction />
-
         <div class="info-container">
-          <h1 class="h1-diary">Create Post</h1>
+          <h1 class="newpost">Create Post</h1>
+          <p class="p-newpost">
+            Write your thoughts about the day.
+            <br />
+          </p>
         </div>
         <div align="center" class="post-form mb-3">
           <div class="card card-info">

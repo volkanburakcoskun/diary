@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Construction from "./common/Construction";
-class Diaries extends Component {
+export default class Home extends Component {
   render() {
     return (
       <div>
@@ -9,5 +9,3 @@ class Diaries extends Component {
     );
   }
 }
-
-export default Diaries;

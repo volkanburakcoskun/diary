@@ -9,12 +9,13 @@ import {
   clearCurrentUser
 } from "./actions/authActions";
 import "./App.css";
-import Login from "./components/Login";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import Navbar from "./components/layout/Navbar";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
-import Diaries from "./components/Diaries";
 import Diary from "./components/newDiary";
+import Home from "./components/Home";
 import store from "./store";
 
 if (localStorage.jwtToken) {
@@ -44,10 +45,11 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/new" component={Diary} />
-            <Route exact path="/diaries" component={Diaries} />
+            <Route exact path="/" component={Home} />
           </div>
         </Router>
       </Provider>
