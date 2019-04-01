@@ -9,8 +9,34 @@ export default class AboutUs extends Component {
             <p>Welcome to Diary</p>
           </h1>
           <p>
-            Volkan Burak Coşkun. Computer Engineer
+            Coded By Volkan Burak Coşkun, Computer Engineer.
             <br />
+            <div align="center">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://facebook.com/volkanburakcoskun"
+                class="fa fa-facebook"
+              />
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://twitter.com/volkanburakcskn"
+                class="fa fa-twitter"
+              />
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://linkedin.com/in/volkanburakcoskun/"
+                class="fa fa-linkedin"
+              />
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://instagram.com/volkanburakcoskun"
+                class="fa fa-instagram"
+              />
+            </div>
           </p>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import logo from "./logo.svg";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import {
@@ -14,6 +13,8 @@ import Login from "./components/Login";
 import Navbar from "./components/layout/Navbar";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
+import Diaries from "./components/Diaries";
+import Diary from "./components/newDiary";
 import store from "./store";
 
 if (localStorage.jwtToken) {
@@ -45,6 +46,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/new" component={Diary} />
+            <Route exact path="/diaries" component={Diaries} />
           </div>
         </Router>
       </Provider>

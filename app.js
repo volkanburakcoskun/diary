@@ -25,6 +25,6 @@ require("./helpers/passport")(passport);
 
 app.use(cors());
 app.use("/api/v1/users", usersRouter);
-app.use("/api/v1/post", postRouter);
+app.use("/api/v1/posts", postRouter);
 
 module.exports = app;

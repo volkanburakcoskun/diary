@@ -9,3 +9,5 @@ class Diaries extends Component {
     );
   }
 }
+
+export default Diaries;
