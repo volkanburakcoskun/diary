@@ -45,7 +45,9 @@ router.post(
 // @desc    Delete Post
 // @access  Private
 router.delete("/:id", (req, res) => {
-  Post.findById(req.params.id).then(post => post.remove());
+  Post.findById(req.params.id)
+    .then(post => post.remove())
+    .then(res.json({ success: true }));
 });
 
 module.exports = router;

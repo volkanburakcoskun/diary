@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Construction from "./common/Construction";
-import TextAreaGroup from "./common/TextAreaGroup";
-import { addPost } from "../actions/postActions";
+import TextAreaGroup from "../common/TextAreaGroup";
+import { addPost } from "../../actions/postActions";
 class Diary extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +30,7 @@ class Diary extends Component {
     };
 
     this.props.addPost(postData);
+    this.setState({ text: "" });
   }
   render() {
     const { errors } = this.state;

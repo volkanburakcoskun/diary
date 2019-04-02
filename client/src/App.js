@@ -13,8 +13,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Navbar from "./components/layout/Navbar";
 import AboutUs from "./components/AboutUs";
-import Dashboard from "./components/Dashboard";
-import Diary from "./components/newDiary";
+import Dashboard from "./components/Post/Dashboard";
 import Home from "./components/Home";
 import store from "./store";
 
@@ -48,7 +47,6 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/new" component={Diary} />
             <Route exact path="/" component={Home} />
           </div>
         </Router>
