@@ -20,12 +20,12 @@ class Post extends Component {
           <div className="col-md-10">
             <p className="lead">{post.body}</p>
 
-            <p className="text-center">{post.author}</p>
             <button
               onClick={this.onDeleteClick.bind(this, post._id)}
               type="button"
-              className="btn btn-danger mr-1"
-            />
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
@@ -35,8 +35,7 @@ class Post extends Component {
 
 Post.propTypes = {
   deletePost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

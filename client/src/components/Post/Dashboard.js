@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPosts } from "../../actions/postActions";
-import Feed from "./Feed";
+import Post from "./Post";
 import Diary from "./newDiary";
+import Header from "../common/Header";
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getPosts();
@@ -19,7 +20,7 @@ class Dashboard extends Component {
     if (posts === null || loading) {
       postContent = "aaa";
     } else {
-      postContent = <Feed posts={posts} />;
+      postContent = posts.map(post => <Post key={post._id} post={post} />);
     }
 
     return (
@@ -27,8 +28,9 @@ class Dashboard extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Diary />
+              <Header />
               {postContent}
+              <Diary />
             </div>
           </div>
         </div>

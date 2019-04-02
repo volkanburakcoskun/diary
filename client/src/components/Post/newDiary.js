@@ -36,18 +36,11 @@ class Diary extends Component {
     const { errors } = this.state;
     return (
       <div>
-        <div class="info-container">
-          <h1 class="newpost">Create Post</h1>
-          <p class="p-newpost">
-            Write your thoughts about the day.
-            <br />
-          </p>
-        </div>
-        <div align="center" class="post-form mb-3">
-          <div class="card card-info">
-            <div class="card-body">
+        <div align="center" className="post-form mb-3">
+          <div className="card card-info">
+            <div className="card-body">
               <form onSubmit={this.onSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                   <TextAreaGroup
                     placeholder="Create a post"
                     name="text"
@@ -57,7 +50,7 @@ class Diary extends Component {
                     style={{ resize: "none" }}
                   />
                 </div>
-                <button type="submit" class="btn btn-dark">
+                <button type="submit" className="btn btn-dark">
                   Send
                 </button>
               </form>

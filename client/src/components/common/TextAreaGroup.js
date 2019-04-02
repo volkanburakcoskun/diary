@@ -21,7 +21,6 @@ const TextAreaGroup = ({
         })}
         placeholder={placeholder}
         name={name}
-        rows={rows}
         value={value}
         onChange={onChange}
       />
@@ -37,7 +36,6 @@ TextAreaGroup.propTypes = {
   value: PropTypes.string.isRequired,
   info: PropTypes.string,
   error: PropTypes.string,
-  rows: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

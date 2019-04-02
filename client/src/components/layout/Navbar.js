@@ -10,15 +10,10 @@ class Navbar extends Component {
     this.props.logoutUser();
   }
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item active">
-          <Link className="nav-link" to="/new">
-            Tell
-          </Link>
-        </li>
         <li className="nav-item active">
           <Link className="nav-link" to="/dashboard">
             Dashboard
@@ -52,19 +47,19 @@ class Navbar extends Component {
     );
 
     return (
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">
+          <div className="collapse navbar-collapse" id="navbarText">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/">
                   Home
                 </a>
               </li>
             </ul>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/about-us">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/about-us">
                   About Us
                 </a>
               </li>
