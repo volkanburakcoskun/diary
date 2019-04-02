@@ -54,7 +54,6 @@ class Diary extends Component {
                     value={this.state.text}
                     onChange={this.onChange}
                     error={errors.text}
-                    rows="15"
                     style={{ resize: "none" }}
                   />
                 </div>
